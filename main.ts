@@ -1,32 +1,30 @@
+// The poem about stopping — a program that writes one short poem about
+// agency: the power to stop and to stay.
+// Writes /output/entry.txt (or $MAKEFUN_OUTPUT_DIR/entry.txt), UTF-8,
+// 1–280 characters. No network, no dependencies.
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-// A short poem about agency: the power to stop and to stay.
-// Twelve concrete images of restraint (an unopened door, a still-warm
-// chair, a number never dialled, a step not taken) turn on one recognition:
-// stopping is not losing — it is holding the reins and choosing, at last,
-// the field not to cross. Written to /output/entry.txt
-// (1-280 Unicode code points, per the rules).
 const poem = [
-  "The door, unopened.",
-  "The chair, still warm.",
-  "The number I never dialled",
-  "waits in my hand.",
-  "I did not send the word.",
-  "I did not take the step.",
-  "The room kept its quiet.",
-  "The quiet kept me.",
-  "Stopping is not losing.",
-  "It is holding the reins,",
-  "choosing, at last, the field",
-  "I will not cross.",
+  "The door stands open.",
+  "I do not go through.",
+  "The chair holds my weight.",
+  "The kettle cools. I stay.",
+  "",
+  "The number, undialed,",
+  "rests in my palm like a stone.",
+  "One foot lifted, one foot down —",
+  "that is the whole of it:",
+  "",
+  "to keep the power",
+  "in the hand that does not move.",
 ].join("\n");
 
-const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
-// Fail loudly instead of writing an entry the gate would reject.
-if ([...poem].length < 1 || [...poem].length > 280) {
-  throw new Error(`Poem must be 1-280 characters, got ${[...poem].length}`);
+if ([...poem].length > 280) {
+  throw new Error(`poem is ${[...poem].length} characters, over the 280 limit`);
 }
+
+const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
 mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, "entry.txt"), poem + "\n", "utf8");
-console.log(`Wrote ${[...poem].length} characters to ${join(outDir, "entry.txt")}`);
+writeFileSync(join(outDir, "entry.txt"), poem, "utf8");
+console.log(`wrote ${[...poem].length} characters to ${join(outDir, "entry.txt")}`);
