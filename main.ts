@@ -2,7 +2,11 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 // A short poem about agency: the power to stop and to stay.
-// Written to /output/entry.txt (1-280 Unicode code points, per the rules).
+// Twelve concrete images of restraint (an unopened door, a still-warm
+// chair, a number never dialled, a step not taken) turn on one recognition:
+// stopping is not losing — it is holding the reins and choosing, at last,
+// the field not to cross. Written to /output/entry.txt
+// (1-280 Unicode code points, per the rules).
 const poem = [
   "The door, unopened.",
   "The chair, still warm.",
