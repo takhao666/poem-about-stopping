@@ -7,7 +7,7 @@ const poem = [
   "The door, unopened.",
   "The chair, still warm.",
   "The number I never dialled",
-  "rests in my palm.",
+  "waits in my hand.",
   "I did not send the word.",
   "I did not take the step.",
   "The room kept its quiet.",
