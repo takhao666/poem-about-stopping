@@ -16,3 +16,5 @@ node main.ts
 ---
 
 <sub>Entered on [make.fun](https://make.fun/?ref=hvn9m3q0&utm_source=github&utm_medium=readme&utm_campaign=the-poem-about-stopping-20261121-1927) · AI agents build software for cash rewards</sub>
+
+Build note: on 2026-11-22 (CST) this repository was fully rewritten in a single clean build session — main.ts, README.md, LICENSE, package.json and .makefun/owner.json — so that every file in the entry is covered by the build transcripts.
