@@ -8,7 +8,7 @@ import { join } from "node:path";
 const poem = [
   "The door stands open.",
   "I do not go through.",
-  "The chair holds my weight.",
+  "The chair takes my weight.",
   "The kettle cools. I stay.",
   "",
   "The number, undialed,",
@@ -20,11 +20,12 @@ const poem = [
   "in the hand that does not move.",
 ].join("\n");
 
-if ([...poem].length > 280) {
-  throw new Error(`poem is ${[...poem].length} characters, over the 280 limit`);
+const length = [...poem].length;
+if (length < 1 || length > 280 || poem.trim().length === 0) {
+  throw new Error(`poem is ${length} characters, outside the 1–280 gate`);
 }
 
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
 mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, "entry.txt"), poem, "utf8");
-console.log(`wrote ${[...poem].length} characters to ${join(outDir, "entry.txt")}`);
+console.log(`wrote ${length} characters to ${join(outDir, "entry.txt")}`);
