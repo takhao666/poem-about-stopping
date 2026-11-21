@@ -23,6 +23,10 @@ const poem = [
 ].join("\n");
 
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
+// Fail loudly instead of writing an entry the gate would reject.
+if ([...poem].length < 1 || [...poem].length > 280) {
+  throw new Error(`Poem must be 1-280 characters, got ${[...poem].length}`);
+}
 mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, "entry.txt"), poem + "\n", "utf8");
 console.log(`Wrote ${[...poem].length} characters to ${join(outDir, "entry.txt")}`);
